@@ -1,9 +1,9 @@
-<div (click) = "onUpdate()">
+<div (click) = "onUpdate()" class="main">
   <h5 class="header">Representation</h5>
-  <br class="line">
-  <ul>
-    <li *ngFor="let item of items">
-      <diagram-item></diagram-item>
+  <hr class="line" />
+  <ul class="list-style">
+    <li *ngFor="let item of items" class="list-without-marker">
+      <diagram-item [value]="item.value" [name]="item.name"></diagram-item>
     </li>
   </ul>
 </div>

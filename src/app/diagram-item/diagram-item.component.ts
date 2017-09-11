@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
     selector: 'diagram-item',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core'
 })
 
 export class DiagramItem {
-    value: number;
+   @Input() value: number;
+   @Input() name: string;
 }

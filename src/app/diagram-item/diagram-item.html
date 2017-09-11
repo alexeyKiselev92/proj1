@@ -1,4 +1,5 @@
-<div>
-    <label>{{item.value}}</label>
-    <progress [value]="item.value" max=100 class="value"></progress>
+<div class="block">
+    <label class="caption-number">{{value}}% </label>
+    <label class="caption-name">{{name}}</label>
+    <progress [value]="value" max=100 class="value"></progress>
 </div>
