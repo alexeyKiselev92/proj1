@@ -1,8 +1,36 @@
 import { DiagramItem } from './diagram-item/diagram-item.component';
 
-export const ITEMS:  DiagramItem[] = [
-    {value: 23, name: 'Item1'},
-    {value: 16, name: 'Item2'},
-    {value: 85, name: 'Item3'},
-    {value: 64, name: 'Item4'}
-]
+
+
+export class Generator{
+    private dItems: DiagramItem[] = [];
+
+    private static _instance: Generator;
+
+    constructor() {
+    }
+
+    public static getInstance(){
+        if (!Generator._instance){
+            Generator._instance = new Generator();
+        }
+        return Generator._instance;
+    }
+
+    public getDiagramItems(): DiagramItem[]{
+        this.dItems = [];
+        var capacity = Math.random() * (7 - 1) + 1;
+        for (var i = 1; i <= capacity; i++)
+        {
+            this.dItems.push(this.createDiagramItemInstance(Math.floor(Math.random() * (100 - 0) + 0), 'Item' + i.toString()));
+        }
+        return this.dItems;
+    }
+
+    createDiagramItemInstance(val: number, name: string): DiagramItem {
+        let instance: DiagramItem = new DiagramItem();
+        instance.value = val;
+        instance.name = name;
+        return instance;
+    } 
+}
