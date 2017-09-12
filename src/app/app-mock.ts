@@ -1,5 +1,5 @@
 import { DiagramItem } from './diagram-item/diagram-item.component';
-
+import { DiagramItemInstance } from './diagram-item/diagram-item-instance';
 
 
 export class Generator{
@@ -28,9 +28,10 @@ export class Generator{
     }
 
     createDiagramItemInstance(val: number, name: string): DiagramItem {
-        let instance: DiagramItem = new DiagramItem();
-        instance.value = val;
-        instance.name = name;
-        return instance;
+        let item: DiagramItem = new DiagramItem();
+        item.instance = new DiagramItemInstance();
+        item.instance.value = val;
+        item.instance.name = name;
+        return item;
     } 
 }

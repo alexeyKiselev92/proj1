@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import { DiagramItemInstance} from './diagram-item-instance';
 
 @Component({
     selector: 'diagram-item',
@@ -7,6 +8,5 @@ import { Component, Input } from '@angular/core'
 })
 
 export class DiagramItem {
-   @Input() value: number;
-   @Input() name: string;
+   @Input() instance: DiagramItemInstance;
 }
