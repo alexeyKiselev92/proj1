@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiagramItem } from './diagram-item/diagram-item.component';
 import { DiagramService } from './app.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'diagram-component',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit{
   constructor(private diagramService: DiagramService){}
 
   onUpdate(): void {
-    this.diagramService.update().then(items=> this.items = items);
+    //this.diagramService.update().then(items=> this.items = items);
+    this.diagramService.getDiagramItemsObservable().subscribe(data => this.items = data);
   }
 
   ngOnInit() : void{
