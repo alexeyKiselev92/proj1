@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 
 export class Generator{
-    private dItems: DiagramItem[] = [];
+    private dItems: DiagramItemInstance[] = [];
 
     private static _instance: Generator;
 
@@ -18,7 +18,7 @@ export class Generator{
         return Generator._instance;
     }
 
-    public getDiagramItems(): DiagramItem[]{
+    public getDiagramItems(): DiagramItemInstance[]{
         this.dItems = [];
         var capacity = Math.random() * (7 - 1) + 1;
         for (var i = 1; i <= capacity; i++)
@@ -28,11 +28,10 @@ export class Generator{
         return this.dItems;
     }
 
-    createDiagramItemInstance(val: number, name: string): DiagramItem {
-        let item: DiagramItem = new DiagramItem();
-        item.instance = new DiagramItemInstance();
-        item.instance.value = val;
-        item.instance.name = name;
+    createDiagramItemInstance(val: number, name: string): DiagramItemInstance {
+        let item: DiagramItemInstance = new DiagramItemInstance();
+        item.value = val;
+        item.name = name;
         return item;
     } 
 }

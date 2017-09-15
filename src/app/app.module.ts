@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DiagramService } from './app.service';
 import { DiagramItem } from './diagram-item/diagram-item.component'
+import { DiagramComponent } from "./diagram-component/diagram-component";
+
 
 @NgModule({
   imports: [
@@ -11,7 +13,8 @@ import { DiagramItem } from './diagram-item/diagram-item.component'
   ],
   declarations: [
     AppComponent,
-    DiagramItem
+    DiagramItem,
+    DiagramComponent
   ],
   providers: [DiagramService],
   bootstrap: [AppComponent]

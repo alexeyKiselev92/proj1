@@ -2,25 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { DiagramItem } from './diagram-item/diagram-item.component';
 import { DiagramService } from './app.service';
 import { Observable } from 'rxjs/Rx';
+import { DiagramComponent } from "./diagram-component/diagram-component";
 
 @Component({
-  selector: 'diagram-component',
+  selector: 'app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [DiagramService]
 })
 export class AppComponent implements OnInit{
-  title = 'diagram';
-  items: DiagramItem[];
+  diagram: DiagramComponent;
+  service: DiagramService;
 
-  constructor(private diagramService: DiagramService){}
-
-  onUpdate(): void {
-    //this.diagramService.update().then(items=> this.items = items);
-    this.diagramService.getDiagramItemsObservable().subscribe(data => this.items = data);
-  }
-
-  ngOnInit() : void{
-    this.onUpdate();
+  ngOnInit(){
+    this.service = new DiagramService();
+    this.diagram = new DiagramComponent(this.service);
   }
 }
